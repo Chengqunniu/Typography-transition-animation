@@ -1,7 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* @keyframes red-to-yellow{
+    0%{
+        color:red;
+
+    }
+    50%{
+        color:blue;
+    }
+    100%{
+        color:yellow;
+
+    } */
+/* @keyframes slide{
+    0%{
+        transform: translateY(100%)
+    }    
+    100%{
+        transform: translateY(0)
+    }
+} */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+
+}
+
+
 h1{
-    color:rgb(171, 180, 49);
+    /* color:rgb(171, 180, 49); */
     text-shadow: 3px 3px 5px black;
+    animation: red-to-yellow 3s both infinite alternate;
 }
 
 p{
@@ -14,26 +44,85 @@ p{
 p strong{
     font-size: 1.5rem;
 }
-.bgimage{
-    width: 200px;
-    height:150px;
-    color: white;
-    padding: 1rem;
-    background: url('https://placekeanu.com/500/300') green 25% center no-repeat;
-    background-size: cover;
+
+.bgimage{ 
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 250px;
+    height:180px;
+    color: white; 
+    /* background: url('https://placekeanu.com/500/300') green center no-repeat;
+    background-size: cover; */
     border-radius: 1rem 2rem 3rem 4rem; 
-    box-shadow: 0px 0px 20px rgba(255, 2, 2, 0.521);
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.7);
+    transition: width 2s;
+} 
+
+.bgimage img{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+
+/* .bgimage:hover{
+    width: 200px;
+
+} */
+
+
+.bgimage:hover  .overlay{
+    /* transform: translateY(0); */
+    animation: slide 1.5s both reverse;
+
 }
 .overlay{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: bold;
     width: 100px;
-    height:100px;
-    background: rgba(255, 255, 0, 0.144);
-    position: relative;
-    top: -100px;
-    left: 50px;
+    padding: 0.5rem;
+    background: #ffff0066;
+    /* transform: translateY(100%); */
+    /* transition: transform 1.5s;  */
+}
+
+.overlay span{
+    opacity: 0;
+    transition: opacity 1s 1.5s;
+}
+
+.bgimage:hover .overlay span {
+    opacity: 1;
+}
+
+#boxes{
+    margin-top: 4rem;
+    border: 1px solid red;
+    width: 300px;
+    display: flex;
+}
+
+#boxes div{
+
+    width: 100px;
+    display: inline-block;
+    height: 100px;
+    padding: 5px;
+}
+
+#boxes div:nth-of-type(1){
+    background: green;
+}
+#boxes div:nth-of-type(2){
+    background: teal;
+}
+#boxes div:nth-of-type(3){
+    background: orange;
 }
